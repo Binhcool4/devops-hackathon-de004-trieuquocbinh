@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trang thông tin cá nhân của Triệu Quốc Bình - Sinh viên PTIT - DevOps Hackathon DE004" />
+  <title>Phạm Viết Quân | DevOps Hackathon DE002</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      animation: fadeInDown 0.8s ease both;
+    }
+
+    .avatar-ring {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      padding: 3px;
+      box-shadow: 0 0 30px rgba(56,189,248,0.4);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      animation: fadeInUp 0.6s ease both;
+    }
+    .card:hover {
+      border-color: rgba(56,189,248,0.3);
+      transform: translateY(-3px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+    .card-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(129,140,248,0.2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+
+    .tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tech-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'Fira Code', monospace;
+      border: 1px solid;
+      transition: all 0.2s;
+    }
+
+    .deploy-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+    }
+    .deploy-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+      margin-right: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="avatar-ring">
+        <div class="avatar-inner"></div>
+      </div>
+      <h1>Triệu Quốc Bình</h1>
+      <p class="subtitle">Sinh viên CNTT · PTIT · DevOps Hackathon DE004</p>
+      <div class="badge-row">
+        <span class="badge green"><span class="status-dot"></span>Online</span>
+        <span class="badge blue">Ubuntu 24.04</span>
+        <span class="badge purple">Nginx · Git · UFW</span>
+      </div>
+    </header>
+
+    <section class="card" id="personal-info">
+      <div class="card-header">
+        <h2 class="card-title">Thông tin cá nhân</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Họ và tên</span>
+          <span class="info-value">Triệu Quốc Bình</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Mã sinh viên</span>
+          <span class="info-value mono">B24DTCN082</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Lớp</span>
+          <span class="info-value">K24 CNTT2</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Trường</span>
+          <span class="info-value">PTIT – Học viện Công nghệ Bưu chính Viễn thông</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Linux username</span>
+          <span class="info-value mono">trieuquocbinh-ks24cntt2</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value mono">binhtrieuhn99@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="tech-stack">
+      <div class="card-header">
+        <h2 class="card-title">Công nghệ sử dụng</h2>
+      </div>
+      <div class="tech-list">
+        <span class="tech-tag emerald">Ubuntu 24.04</span>
+        <span class="tech-tag sky">Nginx</span>
+        <span class="tech-tag amber">Git</span>
+        <span class="tech-tag violet">GitHub</span>
+        <span class="tech-tag sky">UFW Firewall</span>
+        <span class="tech-tag emerald">Bash</span>
+        <span class="tech-tag violet">HTML / CSS</span>
+        <span class="tech-tag amber">Linux CLI</span>
+      </div>
+    </section>
+
+    <section class="card" id="deployment-info">
+      <div class="card-header">
+        <h2 class="card-title">Thông tin triển khai</h2>
+      </div>
+      <div class="deploy-box">
+        <div class="deploy-row">
+          <span class="deploy-key">Repository</span>
+          <span class="deploy-val">devops-hackathon-de004-trieuquocbinh</span>
+        </div>
+        <div class="deploy-row">
+          <span class="deploy-key">Nhánh</span>
+          <span class="deploy-val">main</span>
+        </div>
+        <div class="deploy-row">
+          <span class="deploy-key">Web root (Nginx)</span>
+          <span class="deploy-val">/var/www/devops-hackathon-de004/trieuquocbinh/src</span>
+        </div>
+        <div class="deploy-row">
+          <span class="deploy-key">Cổng dịch vụ</span>
+          <span class="deploy-val">8083</span>
+        </div>
+        <div class="deploy-row">
+          <span class="deploy-key">Server block</span>
+          <span class="deploy-val">trieuquocbinh-k24cntt2.conf</span>
+        </div>
+        <div class="deploy-row">
+          <span class="deploy-key">Firewall (UFW)</span>
+          <span class="deploy-val">allow 8083/tcp</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="description">
+      <div class="card-header">
+        <h2 class="card-title">Mô tả bài làm – Hackathon DE002</h2>
+      </div>
+
+    </section>
+
+  </div>
+</body>
+</html>
